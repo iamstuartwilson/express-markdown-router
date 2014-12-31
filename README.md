@@ -16,7 +16,7 @@ Quick Start
 *You must be using an Express template engine to use this middleware*
 
     var express = require('express');
-    var markdownRouter = require('expres-markdown-router');
+    var markdownRouter = require('express-markdown-router');
 
     var app = express();
 
