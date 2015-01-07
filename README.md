@@ -15,22 +15,24 @@ Quick Start
 
 *You must be using an Express template engine to use this middleware*
 
-    var express = require('express');
-    var markdownRouter = require('express-markdown-router');
+```javascript
+var express = require('express');
+var markdownRouter = require('express-markdown-router');
 
-    var app = express();
+var app = express();
 
-    app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 
-    // Using the jade template engine
-    app.set('view engine', 'jade');
+// Using the jade template engine
+app.set('view engine', 'jade');
 
-    // Use the markdownRouter middleware and pass the directory of your .md files
-    app.use(markdownRouter(__dirname + '/pages'));
+// Use the markdownRouter middleware and pass the directory of your .md files
+app.use(markdownRouter(__dirname + '/pages'));
 
-    app.listen(app.get('port'), function() {
-        console.log('Server started on port %d', app.get('port'));
-    });
+app.listen(app.get('port'), function() {
+    console.log('Server started on port %d', app.get('port'));
+});
+```
 
 This will start a server and build an index of routes based on the .md files found in the `./pages` dir
 
@@ -50,8 +52,10 @@ Additional Params
 
 The view used to render the markdown files within will default to `index[.ext]`.  You can change this by passing a second param to the middleware:
 
-    // Uses a view called 'markdown'
-    app.use(markdownRouter(__dirname + '/pages', 'markdown'));
+```javascript
+// Uses a view called 'markdown'
+app.use(markdownRouter(__dirname + '/pages', 'markdown'));
+```
 
 Caching
 -----
