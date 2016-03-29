@@ -1,5 +1,7 @@
+'use strict';
+
 var fs = require('fs');
-var md = require('node-markdown').Markdown;
+var md = require('marked');
 
 /**
  * Middleware for creating dynamic routes by reading a directory of md files
@@ -24,7 +26,7 @@ var markdownRouter = function(filePath, template) {
      * @return Boolean
      */
     function isDev() {
-        return process.env.NODE_ENV != 'production';
+        return process.env.NODE_ENV !== 'production';
     }
 
     /**
@@ -158,7 +160,7 @@ var markdownRouter = function(filePath, template) {
                 markdown: md(markdown.replace(configRegex, ''))
             });
         });
-    }
-}
+    };
+};
 
 module.exports = markdownRouter;
